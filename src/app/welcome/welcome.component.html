@@ -1,0 +1,77 @@
+
+            <table class="table mb-0">
+                    <thead>
+                      <tr class="table-default">
+                        
+                        <th scope="col">Name</th>
+                        <th scope="col">Area</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">State</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Action</th>
+
+                      </tr>
+                    </thead>
+                    <tbody >
+                      <tr class="table-primary">
+                        <td>{{data.name}}</td>
+                        <td>{{data.area}}</td>
+                        <td>{{data.phone}}</td>
+                        <td>{{data.state}}</td>
+                        <td>{{data.city}}</td>
+                        <button type="button" class="btn btn-dark mt-1" (click)="update()">update</button>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="jumbotron mt-0" *ngIf="toggle">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 offset-md-3">
+                                    <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" [value]="data.name" formControlName="name" class="form-control" [ngClass]="{'is-invalid': (f.name.dirty || f.name.touched) && f.name.errors}"/>
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <label>Area</label>
+                                            <input type="text" [value]="data.area" formControlName="area" class="form-control" [ngClass]="{'is-invalid': (f.area.dirty || f.area.touched) && f.area.errors}"/>
+                                        </div>
+                    
+                                        <div class="form-group">
+                                                <label for="file">Image</label>
+                                                <input 
+                                                    formControlName="image"
+                                                    id="image" 
+                                                    type="file" 
+                                                    class="form-control"
+                                                    (change)="onFileChange($event)">
+                                            </div>
+                    
+                                        <div class="form-group">
+                                            <label>State</label>
+                                            <input type="text" [value]="data.state" formControlName="state" class="form-control" />
+                                        </div> 
+                    
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <input type="text" [value]="data.city" formControlName="city" class="form-control" />
+                                        </div> 
+
+                                        <div class="form-group">
+                                                <label>Address</label>
+                                                <input type="text" formControlName="address" class="form-control"/>
+                                            </div>
+                    
+                    
+                                        
+                                        <div class="form-group">
+                                            <button class="btn btn-primary">save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                  
